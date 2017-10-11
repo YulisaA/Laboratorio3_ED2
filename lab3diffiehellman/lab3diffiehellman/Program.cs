@@ -12,7 +12,7 @@ namespace lab3diffiehellman
     {
         static void Main(string[] args)
         {
-
+            
             DiffieHellman diffieMethods = new DiffieHellman();
             int publicKeyA = diffieMethods.AKey(6, 23, 11);
             int publicKeyB = diffieMethods.BKey(5, 23, 11);
@@ -22,10 +22,6 @@ namespace lab3diffiehellman
             int b = diffieMethods.XKey2(publicKeyA, 87, 223);
             Console.WriteLine("Clave pública A: " + diffieMethods.getKey(publicKeyA.ToString()));
             Console.WriteLine("Clave pública B: " + diffieMethods.getKey(publicKeyB.ToString()));
-
-            Console.WriteLine("Clave privada: " + diffieMethods.getKey(a.ToString()));
-            Console.WriteLine("Clave privada (comprobación): " + diffieMethods.getKey(b.ToString()));
-            Console.WriteLine("");
           
             Parametros parametros = new Parametros();            
 
