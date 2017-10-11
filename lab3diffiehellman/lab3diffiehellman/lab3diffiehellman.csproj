@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cifrar.cs" />
+    <Compile Include="Descifrar.cs" />
     <Compile Include="DiffieHellman.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

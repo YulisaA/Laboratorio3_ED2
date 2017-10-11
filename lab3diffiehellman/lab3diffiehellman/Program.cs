@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,28 +11,21 @@ namespace lab3diffiehellman
     {
         static void Main(string[] args)
         {
-            DiffieHellman diffieMethods = new DiffieHellman();
-            /*numbers[0] = a;
-            numbers[1] = b;
-            numbers[2] = p;
-            numbers[3] = q;*/
 
-            int [] values = diffieMethods.randomValues();
-            int publicKeyA = diffieMethods.AKey(values[0], values[2], values[3]);
-            int publicKeyB = diffieMethods.BKey(values[1], values[2], values[3]);
-            
+            Console.WriteLine("Ingrese su direccion");
+            string Direccion = Console.ReadLine();
+            S_DES my_Des = new S_DES();
+            Cifrar Cifrado = new Cifrar();
+            Cifrado.CrearCifrado(Direccion);
 
-            int a = diffieMethods.XKey1(publicKeyB, values[0], values[2]);
+            Console.WriteLine("Cifrado completo");
 
-            int b = diffieMethods.XKey2(publicKeyA, values[1], values[2]);
-
-            Console.WriteLine("Clave pública A: " + diffieMethods.getKey(publicKeyA.ToString()));
-            Console.WriteLine("Clave pública B: " + diffieMethods.getKey(publicKeyB.ToString()));
-
-            Console.WriteLine("");
-
-            Console.WriteLine("Clave privada: " + diffieMethods.getKey(a.ToString()));
-            Console.WriteLine("Clave privada (comprobación): " + diffieMethods.getKey(b.ToString()));
+            Console.WriteLine("Ingrese su direccion2");
+            string Direccion2 = Console.ReadLine();
+            Descifrar Descifrado = new Descifrar();
+            Descifrado.CrearDescifrado(Direccion2);
+            Console.WriteLine("Descifrado completo");
+            Console.ReadKey();
 
             Console.ReadLine();
         }

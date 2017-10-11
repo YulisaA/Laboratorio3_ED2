@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace lab3diffiehellman
 {
-    class Cifrar
+    class Descifrar
     {
-        public void CrearCifrado(string Direccion)
+        public void CrearDescifrado(string Direccion)
         {
             S_DES my_Des = new S_DES();
-            string DirecciónArchivoCifrado = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\cifrado.txt";
+            string DirecciónArchivoDescifrado = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Descifrado.txt";
             FileStream Archivo = new FileStream(Direccion, FileMode.Open);
             BinaryReader Lector = new BinaryReader(Archivo);
-            FileStream NuevoArchivo = new FileStream(DirecciónArchivoCifrado, FileMode.Create);
+            FileStream NuevoArchivo = new FileStream(DirecciónArchivoDescifrado, FileMode.Create);
             BinaryWriter Escritor = new BinaryWriter(NuevoArchivo);
-            //Tamaño Maximo de Bloques
+            //Tamaño maximo de bloques 
             int TamañoDelBloque = 4 * 1024;
             int NumeroDeIteracion;
             if (Archivo.Length < TamañoDelBloque)
@@ -34,7 +34,7 @@ namespace lab3diffiehellman
                 byte[] Salida = new byte[Entrada.Length];
                 for (int i = 0; i < Salida.Length; i++)
                 {
-                    Salida[i] = my_Des.Cifrado(Entrada[i]);
+                    Salida[i] = my_Des.Descifrado(Entrada[i]);
                 }
                 Escritor.Write(Salida);
                 Escritor.Flush();
@@ -46,4 +46,3 @@ namespace lab3diffiehellman
         }
     }
 }
-

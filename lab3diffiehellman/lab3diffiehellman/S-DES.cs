@@ -9,24 +9,18 @@ namespace lab3diffiehellman
 {
     class S_DES
     {
+        DiffieHellman diffieMethods = new DiffieHellman();
+
         //Declaracion de Variables 
         BitArray[,] S_Box1 = new BitArray[4, 4];
         BitArray[,] S_Box2 = new BitArray[4, 4];
         BitArray LlaveMaestra;
+        
 
         public S_DES()
         {
-            LlaveMaestra = new BitArray(10);
-            LlaveMaestra[0] = true;
-            LlaveMaestra[1] = true;
-            LlaveMaestra[2] = false;
-            LlaveMaestra[3] = false;
-            LlaveMaestra[4] = false;
-            LlaveMaestra[5] = true;
-            LlaveMaestra[6] = true;
-            LlaveMaestra[7] = true;
-            LlaveMaestra[8] = true;
-            LlaveMaestra[9] = false;
+
+            DiffieHelmanLlave();
 
             BitArray Numero0 = new BitArray(2);
             Numero0[0] = false;
@@ -86,6 +80,30 @@ namespace lab3diffiehellman
             S_Box2[3, 2] = Numero0;
             S_Box2[3, 3] = Numero3;
             //---------------------
+        }
+        private void DiffieHelmanLlave()
+        {
+            
+            int publicKeyA = diffieMethods.AKey(6,23,11);
+            int publicKeyB = diffieMethods.BKey(5,23,11);
+
+            int a = diffieMethods.XKey1(publicKeyB, 251, 739);
+
+            int b = diffieMethods.XKey2(publicKeyA, 87, 223);
+
+            string LlavePrincipal = diffieMethods.getKey(a.ToString());
+            Char[] LlaveArreglo = LlavePrincipal.ToCharArray();
+            LlaveMaestra = new BitArray(10);
+            LlaveMaestra[0] = Convert.ToBoolean(Convert.ToInt32(LlaveArreglo[0].ToString()));
+            LlaveMaestra[1] = Convert.ToBoolean(Convert.ToInt32(LlaveArreglo[1].ToString()));
+            LlaveMaestra[2] = Convert.ToBoolean(Convert.ToInt32(LlaveArreglo[2].ToString()));
+            LlaveMaestra[3] = Convert.ToBoolean(Convert.ToInt32(LlaveArreglo[3].ToString()));
+            LlaveMaestra[4] = Convert.ToBoolean(Convert.ToInt32(LlaveArreglo[4].ToString()));
+            LlaveMaestra[5] = Convert.ToBoolean(Convert.ToInt32(LlaveArreglo[5].ToString()));
+            LlaveMaestra[6] = Convert.ToBoolean(Convert.ToInt32(LlaveArreglo[6].ToString()));
+            LlaveMaestra[7] = Convert.ToBoolean(Convert.ToInt32(LlaveArreglo[7].ToString()));
+            LlaveMaestra[8] = Convert.ToBoolean(Convert.ToInt32(LlaveArreglo[8].ToString()));
+            LlaveMaestra[9] = Convert.ToBoolean(Convert.ToInt32(LlaveArreglo[9].ToString()));
         }
 
         //Cifrado por funcion
