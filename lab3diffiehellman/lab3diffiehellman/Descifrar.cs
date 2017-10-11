@@ -9,10 +9,10 @@ namespace lab3diffiehellman
 {
     class Descifrar
     {
-        public void CrearDescifrado(string Direccion)
+        public void CrearDescifrado(string Direccion, string extension)
         {
             S_DES my_Des = new S_DES();
-            string DirecciónArchivoDescifrado = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Descifrado.txt";
+            string DirecciónArchivoDescifrado = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Descifrado" + extension;
             FileStream Archivo = new FileStream(Direccion, FileMode.Open);
             BinaryReader Lector = new BinaryReader(Archivo);
             FileStream NuevoArchivo = new FileStream(DirecciónArchivoDescifrado, FileMode.Create);

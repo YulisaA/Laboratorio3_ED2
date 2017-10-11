@@ -13,7 +13,6 @@ namespace lab3diffiehellman
         {
             S_DES my_Des = new S_DES();
 
-
             string DirecciónArchivoCifrado = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + nombreOriginal + ".cif";
             FileStream Archivo = new FileStream(Direccion, FileMode.Open);
             BinaryReader Lector = new BinaryReader(Archivo);
