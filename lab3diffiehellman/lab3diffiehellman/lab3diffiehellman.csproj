@@ -46,6 +46,7 @@
     <Compile Include="Cifrar.cs" />
     <Compile Include="Descifrar.cs" />
     <Compile Include="DiffieHellman.cs" />
+    <Compile Include="Parametros.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="S-DES.cs" />
