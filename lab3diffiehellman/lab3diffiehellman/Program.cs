@@ -12,7 +12,7 @@ namespace lab3diffiehellman
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
+
             DiffieHellman diffieMethods = new DiffieHellman();
             int publicKeyA = diffieMethods.AKey(6, 23, 11);
             int publicKeyB = diffieMethods.BKey(5, 23, 11);
@@ -26,13 +26,11 @@ namespace lab3diffiehellman
             Console.WriteLine("Clave privada: " + diffieMethods.getKey(a.ToString()));
             Console.WriteLine("Clave privada (comprobación): " + diffieMethods.getKey(b.ToString()));
             Console.WriteLine("");
-            Console.WriteLine("Ingrese su direccion");
-            string Direccion = Console.ReadLine();
-=======
+          
             Parametros parametros = new Parametros();            
 
 
->>>>>>> a625de83adee6d82061f2ebe45245b8a05e7793e
+
             S_DES my_Des = new S_DES();
             Cifrar Cifrado = new Cifrar();
             Descifrar Descifrado = new Descifrar();
