@@ -9,10 +9,11 @@ namespace lab3diffiehellman
 {
     class Cifrar
     {
-        public void CrearCifrado(string Direccion)
+        public void CrearCifrado(string Direccion, string nombreOriginal)
         {
             S_DES my_Des = new S_DES();
-            string DirecciónArchivoCifrado = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\cifrado.txt";
+
+            string DirecciónArchivoCifrado = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + nombreOriginal + ".cif";
             FileStream Archivo = new FileStream(Direccion, FileMode.Open);
             BinaryReader Lector = new BinaryReader(Archivo);
             FileStream NuevoArchivo = new FileStream(DirecciónArchivoCifrado, FileMode.Create);
